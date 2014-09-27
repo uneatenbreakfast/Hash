@@ -13,7 +13,7 @@ public class OALP {
 	public static void main(String[] args) {
 		HashTable ht = new HashTable(1000);
 		//
-		HashTable.testMode = true;
+		HashTable.testMode = false;
 		//
 		Scanner fs = new Scanner( System.in );
 		int orderNum = 0;
@@ -104,14 +104,9 @@ class HashTable{
 		int slotNumx = Integer.parseInt(newDsx);
 		int ti = slotNumx;
 		for(int i=0;i<1000;i++){
-			if(ti >= 1000){
-				ti = 0;
-			}
-			if(store[ti] == 0){
-				slotNumx = ti;
+			if(store[(slotNumx+i)%1000] == 0){
+				slotNumx = (slotNumx+i)%1000;
 				break;
-			}else{
-				ti++;
 			}
 		}
 		return slotNumx; 
