@@ -20,7 +20,7 @@ public class OADH {
 		int orderNum = 0;
 		ArrayList<Integer> decreasingSequence = new ArrayList<Integer>(); 
         while(fs.hasNext()){
-        	String n = fs.nextLine();
+        	String n = fs.nextLine().trim();
         	
         	if(orderNum == 0){
         		// first line
@@ -39,9 +39,10 @@ public class OADH {
         		if(n.equals("")){
             		decreasingSequence.add(0);
         		}else{
-        			int xx = n.split(" ").length;
+        			int xx = n.replaceAll("\\s+",",").split(",").length;
             		decreasingSequence.add(xx);
         		}
+        		
         		
         		orderNum--;
         	}

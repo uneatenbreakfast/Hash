@@ -20,7 +20,7 @@ public class OALP {
 		
 		ArrayList<Integer> decreasingSequence = new ArrayList<Integer>(); 
         while(fs.hasNext()){
-        	String n = fs.nextLine();
+        	String n = fs.nextLine().trim();
         	
         	if(orderNum == 0){
         		// first line
@@ -30,7 +30,6 @@ public class OALP {
         		
         		if(n.equals("0")){ // End of sequence, close all
              	   fs.close();
-             	   //trace("EXIT SCANNER");
              	   break;
                 }
         	}else{
@@ -39,7 +38,7 @@ public class OALP {
         		if(n.equals("")){
             		decreasingSequence.add(0);
         		}else{
-        			int xx = n.split(" ").length;
+        			int xx = n.replaceAll("\\s+",",").split(",").length;
             		decreasingSequence.add(xx);
         		}
         		
@@ -99,13 +98,11 @@ class HashTable{
 		String newDsx = getMid(dsquared+"");
 		
 		trace("newDsx:"+newDsx);
-		
-		// try this slot
 		int slotNumx = Integer.parseInt(newDsx);
-		int ti = slotNumx;
+		int wrap = 1000;
 		for(int i=0;i<1000;i++){
-			if(store[(slotNumx+i)%1000] == 0){
-				slotNumx = (slotNumx+i)%1000;
+			if(store[(slotNumx+i)%wrap] == 0){
+				slotNumx = (slotNumx+i)%wrap;
 				break;
 			}
 		}

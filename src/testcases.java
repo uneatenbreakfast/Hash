@@ -9,8 +9,17 @@ public class testcases {
 		HashTable3 ht = new HashTable3(1000);
 		//
 		ht.testMode = true;
+		
+		String n = "  1      ";
+		
+		if(n.equals("")){
+			System.out.println("D00000");
+		}
+		
+		int c = n.split("\\s+").length;
+		System.out.println( c );
         
-		for(int i=0;i<1000;i++){
+		for(int i=0;i<0;i++){
 			ht.add(""+20319);
 		}
 		
